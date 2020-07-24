@@ -1,0 +1,35 @@
+<html>
+   <head>
+       <title>Code Share</title>
+   </head>
+   <body>
+    <h1 style="text-align: center;">Code Share</h1>	
+       <p align=center><a href="/">Home</a>
+       {% if uid %}
+       <p align=center><a href="/view/{{ uid }}">View only code: {{ uid }}</a>
+       <p align=center>URL: <input name='url' value="{{ url }}">
+       {% endif %}
+       <p align=center>
+       <form method="POST" action="/publish" enctypwe="multipart/form-data" style="text-align: center;">
+           <table style="text-align: center;width: 100%;">
+            <tr>
+             <td>
+              <textarea style="text-align: center;" name="code" rows=20 cols=100>{{ code }}</textarea><br/>
+             </td>
+            </tr>
+           </table>
+           <div style="width: 100%; text-align: center;">
+            <select name="langage">
+               <option value ="HTML">HTML</option>
+               <option value ="PHP">PHP</option>
+               <option value ="JAVASCRIPT">JAVASCRIPT</option>
+               <option value ="PYTHON">PYTHON</option>
+           </select>
+
+          <input type="hidden" name="uid" value="{{ uid }}">
+          <button style="padding: 15px;border-radius: 30px;" type="submit" name="submit" value="edit">Save</button style="padding: 15px;border-radius: 30px;">
+          <button style="padding: 15px;border-radius: 30px;" type="submit" name="submit" value="view">Save &amp; View</button style="padding: 15px;border-radius: 30px;">
+        </div>
+       </form>
+   </body>
+</html>

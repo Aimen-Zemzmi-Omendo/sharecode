@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+   <head>
+	   <title>Code Share : ADMIN!</title>
+   </head>
+   <style>table,
+td {
+    border: 1px solid #333;
+    width: 800px;
+    text-align: center;
+}
+
+thead,
+tfoot {
+    background-color: cadetblue;
+    color: #fff;
+}</style>
+   <p>
+	<h1 style="text-align: center;">Code Share</h1>
+	{% if last_added %}
+		<h2 style="margin-top: 20px;">Derniers ajouts</h2>
+		{% for entry in last_added %}
+			<div style="background-color:dimgray;color: white;text-align: center;padding-bottom: 10px;padding-top: 10px;border: 1px solid black;">
+				<p><a href="/view/{{ entry["uid"] }}">{{ entry["uid"] }}"</a>
+				<p><pre>{{ entry["code"] }}</pre>
+			</div>
+			<table style="width: 100%;height: 50px;">
+				<thead style="background-color: black;color: white;">
+					<tr>
+						<th >UID</th>
+						<th >IP</th>
+						<th >Navigator</th>
+						<th >Created At </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>{{ entry["uid"] }}</td>
+						<td>{{ entry["ip"] }}</td>
+						<td>{{ entry["navigator"] }}</td>
+						<td style="width:1000px">{{ entry["timestamp"] }}</td>
+					</tr>
+				</tbody>
+			</table>
+			<hr/>
+		{% endfor %}
+	{% endif %}
+	{{ code }}
+	<div style="text-align: center;margin-top: 20px;">
+		<form method="GET" action="/" style="display: inline;">
+			<button style="padding: 15px;border-radius: 30px;" name="accueil">HOME</button>
+		</form>
+	</div>
+   </body>
+</html>

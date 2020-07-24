@@ -1,0 +1,26 @@
+<html>
+   <head>
+	   <title>Code Share</title>
+   </head>
+   <body>
+	<h1 style="text-align: center;">Code Share</h1>	
+	{% if last_added %}
+		<h2 style="margin-top: 20px;">Derniers ajouts</h2>
+		{% for entry in last_added %}
+			<div style="background-color:dimgray;color: white;text-align: center;padding-bottom: 10px;padding-top: 10px;border: 1px solid black;">
+				<p><a href="/view/{{ entry["uid"] }}">{{ entry["uid"] }}</a>
+					<p><pre>{{ entry["code"] }}</pre>
+			</div>
+		{% endfor %}
+	{% endif %}
+	<div style="text-align: center;margin-top: 20px;">
+		<form method="GET" action="/admin" style="display: inline;">
+			<button style="padding: 15px;border-radius: 30px;" name="admin">Admin</button>
+		</form> 
+		<form method="GET" action="/create" style="display: inline;">
+			<button style="padding: 15px;border-radius: 30px;" name="create">Create</button>
+		</form>
+	</div>
+	
+   </body>
+</html>

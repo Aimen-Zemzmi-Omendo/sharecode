@@ -1,0 +1,19 @@
+<html>
+   <head>
+	   <title>Code Share</title>
+   </head>
+   <body>
+	<h1 style="text-align: center;">Code Share</h1>	
+	<div style="text-align: center;">
+	   <form>
+		 <p>URL: <input name='url' value="{{ url }}">
+	   </form>
+	   <p>
+		   <pre>{{ code }}</pre>
+	   </p>
+	   <p><a href="/">Home</a>	
+	   <a href="/edit/{{ uid }}">Edit</a></br>
+	   <a href="/create">Create New</a>
+	</div>
+   </body>
+</html>
